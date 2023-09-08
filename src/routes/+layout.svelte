@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	import { base } from '$app/paths';
 	import { onNavigate } from '$app/navigation';
 
 	// https://svelte.dev/blog/view-transitions
@@ -14,15 +15,15 @@
 		});
 	});
 
-	$: isActive = (path) => $page.url.pathname === path;
+	$: isActive = (path) => $page.url.pathname === `${base}${path}`;
 </script>
 
 <nav>
 	<ul>
-		<li><a href="/" class:active={isActive('/')}>Home</a></li>
-		<li><a href="/longer" class:active={isActive('/longer')}>Longer title</a></li>
-		<li><a href="/one" class:active={isActive('/one')}>One</a></li>
-		<li><a href="/two" class:active={isActive('/two')}>Two</a></li>
+		<li><a href="{base}/" class:active={isActive(base ? '' : '/')}>Home</a></li>
+		<li><a href="{base}/longer" class:active={isActive('/longer')}>Longer title</a></li>
+		<li><a href="{base}/one" class:active={isActive('/one')}>One</a></li>
+		<li><a href="{base}/two" class:active={isActive('/two')}>Two</a></li>
 	</ul>
 </nav>
 
