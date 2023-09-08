@@ -10,11 +10,11 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: adapter({
 			fallback: 'index.html',
-			pages: 'dist',
-			paths: {
-				base: dev ? '' : '/view-transitions'
-			}
-		})
+			pages: 'dist'
+		}),
+		paths: {
+			base: dev ? '' : '/view-transitions'
+		}
 	}
 };
 
